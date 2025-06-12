@@ -1,5 +1,4 @@
 const { Sequelize } = require("sequelize");
-require("dotenv").config();
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -7,9 +6,11 @@ const sequelize = new Sequelize(
   process.env.DB_PASS,
   {
     host: process.env.DB_HOST,
-    port: process.env.DB_PORT, // <- string is fine, Sequelize handles it
+    port: process.env.DB_PORT,
     dialect: "mysql",
-    logging: false,
+    dialectOptions: {
+      connectTimeout: 10000, // Increase timeout
+    },
   }
 );
 
