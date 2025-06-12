@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Project = require("../models/projects");
 
-app.get("/", (req, res) => res.send("API is running..."));
+router.get("/", (req, res) => res.send("API is running..."));
 
 // GET all projects
 router.get("/projects", async (req, res) => {
