@@ -2,8 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Project = require("../models/projects");
 
+app.get("/", (req, res) => res.send("API is running..."));
+
 // GET all projects
-router.get("/", async (req, res) => {
+router.get("/projects", async (req, res) => {
   try {
     const projects = await Project.findAll({
       order: [["category"], ["orderProj"], ["id", "DESC"]],
