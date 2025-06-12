@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const sequelize = require("./db");
 const projectsRoutes = require("./routes/index"); // Make sure this file exists
+require("dotenv").config();
 
 app.use(express.json()); // Allow JSON body parsing
 app.use("/api", projectsRoutes); // Prefix for project endpoints
